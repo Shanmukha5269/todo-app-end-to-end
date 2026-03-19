@@ -1,0 +1,45 @@
+services:
+  todo-frontend:
+    build:
+      context: frontend/.
+    image: todo-frontend-c
+    container_name: todo-frontend-c
+    networks:
+      - todo-network
+    ports:
+      - 1313:80
+
+  todo-backend:
+    build:
+      context: backend/todoApp/.
+    image: todo-backend-c
+    container_name: todo-backend-c
+    networks:
+      - todo-network
+    ports:
+      - 8080:8080
+    env_file:
+      - backend/todoApp/.env
+    depends_on:
+      - mysql
+    restart: always
+      
+
+  mysql:
+    image: mysql
+    container_name: todo-mysql-c
+    networks:
+      - todo-network
+    ports:
+      - 3307:3306
+    # environment:
+      # - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      # - MYSQL-USERNAME=${MYSQL_ROOT_PASSWORD}
+      # - MYSQL-DATABASE=${MYSQL_DATABASE}
+      # - MYSQL_HOST=${MYSQL_HOST}
+    env_file:
+      - .env
+
+networks:
+  todo-network:
+    name: todo-network-c
