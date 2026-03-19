@@ -1,8 +1,4 @@
-// use this for localhost system environment
-// const API_URL = "http://localhost:8080/tasks";
-
-// use this for docker environment
-const API_URL = "http://todo-backend:8080/tasks"
+const API_URL = "http://localhost:8080/tasks";
 
 window.onload = loadTasks;
 
