@@ -2,8 +2,8 @@ services:
   todo-frontend:
     build:
       context: frontend/.
-    image: todo-frontend-c
-    container_name: todo-frontend-c
+    image: todo-frontend
+    container_name: todo-frontend
     networks:
       - todo-network
     ports:
@@ -12,8 +12,8 @@ services:
   todo-backend:
     build:
       context: backend/todoApp/.
-    image: todo-backend-c
-    container_name: todo-backend-c
+    image: todo-backend
+    container_name: todo-backend
     networks:
       - todo-network
     ports:
@@ -27,7 +27,7 @@ services:
 
   mysql:
     image: mysql
-    container_name: todo-mysql-c
+    container_name: todo-mysql
     networks:
       - todo-network
     ports:
@@ -42,4 +42,4 @@ services:
 
 networks:
   todo-network:
-    name: todo-network-c
+    name: todo-network
