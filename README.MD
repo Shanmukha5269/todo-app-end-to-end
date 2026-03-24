@@ -19,7 +19,7 @@ todo-app-end-to-end/
 
 ---
 
-# Build reate the jar file of application
+# Build the jar file of application
 
 Navigate to the backend application directory:
 
