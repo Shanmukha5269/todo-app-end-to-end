@@ -19,6 +19,23 @@ todo-app-end-to-end/
 
 ---
 
+# Build reate the jar file of application
+
+Navigate to the backend application directory:
+
+```bash
+cd todo-app-end-to-end/backend/todoApp
+```
+
+Run the command:
+
+```bash
+mvn clean package -DskipTests
+```
+
+Now the jar file of the todo app is built in target folder
+
+
 # 1. Build and Run using Docker
 
 ## Using Only Docker Files (Without using yaml file)
@@ -89,6 +106,24 @@ mysql
 - `MYSQL_HOST` → Specifies MySQL as host  
 - `MYSQL_DATABASE` → Automatically creates database  
 
+# Now you could check for the database using 
+
+```bash
+docker exec -it todo-mysql mysql -u root -p
+```
+
+By this you will get into mysql and could verify the database is created or not
+
+Use command:
+
+```bash
+show databases;
+```
+
+```bash
+use todo_db;
+```
+
 ⚠️ Ensure:
 - Username, password, and database name match backend configuration  
 - Same credentials must be used in backend  
@@ -141,6 +176,25 @@ Once all containers are running, open:
 ```
 http://localhost:1313
 ```
+---
+
+# Using Docker Compose
+
+```bash
+cd todo-app-end-to-end
+```
+
+Run the following command:
+
+```bash
+docker compose up --build
+```
+
+Once all the containers are up and running, you can access the application at:
+
+```
+http://localhost:1313
+```
 
 ---
 
@@ -152,7 +206,7 @@ In this project, we successfully:
 - Pulled and configured MySQL container  
 - Created a custom Docker network  
 - Enabled communication between containers  
-- Deployed a full-stack Todo application  
+- Deployed a full-stack Todo application using docker compose
 
 This demonstrates a **complete containerized application setup using Docker**.
 
