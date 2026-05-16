@@ -178,7 +178,7 @@ http://localhost:1313
 ```
 ---
 
-# Using Docker Compose
+# 2. Using Docker Compose
 
 ```bash
 cd todo-app-end-to-end
@@ -198,6 +198,97 @@ http://localhost:1313
 
 ---
 
+# 3. Deploying to Kubernetes using Minikube
+
+## Start Minikube
+
+```bash
+minikube start
+```
+
+---
+
+## Create deployments
+
+Create a deployment
+
+```bash
+kubectl apply -f db-deployment.yml
+```
+
+## Check for db-deployment pod and get into it to create database
+
+```bash
+kubectl get pods
+```
+
+```bash
+kubectl exec -it <db-pod-name> -- bash
+```
+
+## Use mysql commands
+
+```bash
+mysql -u root -p
+```
+
+```bash
+create database todo_db;
+```
+
+
+```bash
+kubectl apply -f backend-deployment.yml
+```
+
+```bash
+kubectl apply -f frontend-deployment.yml
+```
+
+---
+
+## Deploying services
+
+
+```bash
+kubectl apply -f db-service.yml
+```
+
+```bash
+kubectl apply -f backend-service.yml
+```
+
+```bash
+kubectl apply -f frontend-service.yml
+```
+
+## Get services
+
+```bash
+kubectl get svc
+```
+---
+
+## Port forwarding 
+
+```bash
+kubectl port-forward <frontend-pod> 5500:80
+```
+
+```bash
+kubectl port-forward <backend-pod> 8080:8080
+```
+
+Now the complete todo application is deployed in kubernetes
+
+Access it from the url
+
+```
+http://localhost:5500
+```
+
+---
+
 # Conclusion
 
 In this project, we successfully:
@@ -209,5 +300,5 @@ In this project, we successfully:
 - Deployed a full-stack Todo application using docker compose
 
 This demonstrates a **complete containerized application setup using Docker**.
-
+**Disclaimer** - The cross config is not properly implemented here, so it even works for other port except 5500 
 ---
