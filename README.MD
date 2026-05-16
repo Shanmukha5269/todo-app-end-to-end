@@ -200,6 +200,8 @@ http://localhost:1313
 
 # 3. Deploying to Kubernetes using Minikube
 
+**Go to all the yml files in k8s/manifests and replace the credentials**
+
 ## Start Minikube
 
 ```bash
