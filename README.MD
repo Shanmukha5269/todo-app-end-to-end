@@ -298,7 +298,9 @@ In this project, we successfully:
 - Created a custom Docker network  
 - Enabled communication between containers  
 - Deployed a full-stack Todo application using docker compose
+- Deployed the application as a **Deployment in Kubernetes using Minikube**
 
 This demonstrates a **complete containerized application setup using Docker**.
+
 **Disclaimer** - The cross config is not properly implemented here, so it even works for other port except 5500 
 ---
