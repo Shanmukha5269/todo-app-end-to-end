@@ -1,5 +1,6 @@
 # Todo App Deployment using Docker and Kubernetes
 
+![Request Flow](images/diagram.png)
 This project demonstrates **end-to-end deployment of a Todo Application** using:
 
 - **Docker** for containerization  
